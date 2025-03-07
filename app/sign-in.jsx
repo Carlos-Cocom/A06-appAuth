@@ -32,7 +32,7 @@ export default function SignIn() {
       <View style={styles.overlay} />
 
       <View style={styles.container}>
-        <Text style={styles.title}>MobileApp</Text>
+        <Text style={styles.title}>Todo App</Text>
 
         <TextInput
           style={styles.input}
