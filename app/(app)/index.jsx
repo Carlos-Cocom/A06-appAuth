@@ -26,15 +26,15 @@ export default function Index() {
       return;
     }
 
-    if (task.length > 30) {
-      setErrorMessage("Máximo 30 caracteres permitidos.");
+    if (task.length > 25) {
+      setErrorMessage("Máximo 25 caracteres permitidos.");
       return;
     }
 
     db.runAsync("INSERT INTO tasks (name) VALUES (?)", [task])
       .then(() => {
         setTask("");
-        setErrorMessage(""); // Limpiar error al registrar bien la tarea
+        setErrorMessage("");
         loadTasks();
       })
       .catch((error) => console.log("Error adding task:", error));
@@ -72,18 +72,18 @@ export default function Index() {
         <Text style={styles.title}>Gestión de Tareas</Text>
 
         <TextInput
-          placeholder="Nueva tarea... (Maximo 30 caracteres)"
+          placeholder="Nueva tarea... (Maximo 25 caracteres)"
           value={task}
           onChangeText={(text) => {
             setTask(text);
-            if (text.length > 30) {
-              setErrorMessage("Máximo 30 caracteres permitidos.");
+            if (text.length > 25) {
+              setErrorMessage("Máximo 25 caracteres permitidos.");
             } else {
-              setErrorMessage("");
+              setErrorMessage("fallo we");
             }
           }}
           style={styles.input}
-          maxLength={30}
+          maxLength={25}
         />
 
         {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
